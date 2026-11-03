@@ -1,0 +1,9 @@
+# WorkBuddy 本地工作数据（会话记忆等），不随仓库分发
+.workbuddy/
+
+# 操作系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

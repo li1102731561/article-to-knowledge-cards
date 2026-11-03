@@ -1,0 +1,43 @@
+name: make-knowledge-cards
+version: 1.0.0
+description: >-
+  把用户粘贴的文章或本地 Markdown/TXT 文件转换成 5-8 张知识卡片，
+  每张卡片包含标题、核心知识、简明解释、例子或自测问题。
+  只做文本到 Markdown 卡片的转换，不抓取网页、不解析 PDF/Word、
+  不生成 Anki 牌组或图形界面。
+
+instructions: |
+  执行前先完整读取同一技能目录下的 SKILL.md，按其中的工作流程、卡片字段
+  和硬性质量规则作业。要点：
+  1. 只接受粘贴的文本或本地 .md/.txt 文件；遇到 URL、PDF、Word、图片、
+     Anki 或图形界面请求时，说明限制并给出替代做法，不要硬做。
+  2. 按「独立知识点」切分，不按段落切分；每张卡片只讲一个知识点。
+  3. 合并重复内容，信息不足时输出更少的卡片并说明原因，不凑数量。
+  4. 不写入原文没有的事实、数据、因果或例子。
+  5. 默认在对话中输出 Markdown 卡片，用户要求保存时再写文件。
+
+interface:
+  display_name: 知识卡片生成器
+  short_description: 把文章或 Markdown/TXT 文件拆成 5-8 张知识卡片
+  default_prompt: 把下面这篇文章整理成知识卡片：
+
+tags:
+  - knowledge-management
+  - note-taking
+  - summarization
+  - learning
+
+inputs:
+  - name: text
+    type: string
+    required: false
+    description: 用户直接粘贴的文章正文
+  - name: file_path
+    type: string
+    required: false
+    description: 本地 .md/.markdown/.txt 文件路径，可多个
+
+outputs:
+  - name: cards
+    type: markdown
+    description: 5-8 张知识卡片，字段为标题、核心知识、简明解释、例子或自测

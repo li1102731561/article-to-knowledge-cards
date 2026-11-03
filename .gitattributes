@@ -1,0 +1,7 @@
+# 统一以 LF 存入仓库，避免 Windows 提交产生整文件换行差异
+* text=auto eol=lf
+
+*.md   text
+*.yaml text
+*.yml  text
+LICENSE text
